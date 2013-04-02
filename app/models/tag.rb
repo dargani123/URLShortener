@@ -1,6 +1,8 @@
 class Tag < ActiveRecord::Base
   attr_accessible :category
 
+  validates :category, :presence => true, :uniqueness => true
+
   has_many :short_urls, :through => :url_tags
 
   def self.most_popular
